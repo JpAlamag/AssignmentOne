@@ -16,23 +16,29 @@ namespace AssignmentOne___Hero_Class
         // PUBLIC PROPERTIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public string name;
 
+        
+
         // CONSTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public Hero(string name)
         {
-            name = this.name;
+            this.name = name;
         }
 
+        
         // PRIVATE METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         
         private void generateAbilities()
         {
+            Random skillPts = new Random();
+            this.strength = skillPts.Next(0, 100);
+            this.speed = skillPts.Next(0, 100);
+            this.health = skillPts.Next(0, 100);
 
         }
 
-       
-        private bool hitAttempt()
+      /*  private bool hitAttempt()
         {
-
+            // switch statement random num
         }
 
         
@@ -51,7 +57,7 @@ namespace AssignmentOne___Hero_Class
         public show()
         {
 
-        }
+        }*/
 
         
         
