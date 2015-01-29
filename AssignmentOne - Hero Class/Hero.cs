@@ -13,7 +13,9 @@ namespace AssignmentOne___Hero_Class
         private int speed;
         private int health;
         private int hitStrength;
-        
+        private bool attempt;
+        private static Random randomNum = new Random(); // Generates random number
+
 
         // PUBLIC PROPERTIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public string name;
@@ -32,29 +34,23 @@ namespace AssignmentOne___Hero_Class
         // random skill points generated from 0-100
         private void generateAbilities()
         {
-            Random skillPts = new Random();
-            this.strength = skillPts.Next(0, 100) + 1;
-            this.speed = skillPts.Next(0, 100) + 1;
-            this.health = skillPts.Next(0, 100) + 1;
+            this.strength = randomNum.Next(0, 100) + 1;
+            this.speed = randomNum.Next(0, 100) + 1;
+            this.health = randomNum.Next(0, 100) + 1;
 
         }
-        // determines if hit is landed or not (3 = hit)
+        // determines if hit is landed or not (20%)
         private bool hitAttempt()
         {
-            bool hit = false;
-            Random attack = new Random();
-            int attempt = attack.Next(1, 5) + 1;
-
-            if (attempt == 3)
+            if (randomNum.Next (0, 100)<=20)
             {
-                hit = true;
+                this.attempt = true;
             }
-            
             else
             {
-                hit = false;
+                this.attempt = false;
             }
-            return hit;
+            return this.attempt;
         }
 
         // calculates amount of damage dealt to enemy (random number from 1-6)
@@ -82,10 +78,12 @@ namespace AssignmentOne___Hero_Class
 
         public void show()
         {
+            Console.WriteLine("|_|^|_|^|_|^|_|^_|^|_|^|_|^|_|");
             Console.WriteLine("Princess Zelda's statistics:", this.name);
             Console.WriteLine("Strength {0}", this.strength);
             Console.WriteLine("Speed {0}", this.speed);
             Console.WriteLine("health {0}", this.health);
+            Console.WriteLine("|____________________________|");
         }
 
         
