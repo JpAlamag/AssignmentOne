@@ -12,6 +12,8 @@ namespace AssignmentOne___Hero_Class
         private int strength;
         private int speed;
         private int health;
+        private int hitStrength;
+        
 
         // PUBLIC PROPERTIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public string name;
@@ -22,42 +24,69 @@ namespace AssignmentOne___Hero_Class
         public Hero(string name)
         {
             this.name = name;
+            generateAbilities();
         }
 
         
         // PRIVATE METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        
+        // random skill points generated from 0-100
         private void generateAbilities()
         {
             Random skillPts = new Random();
-            this.strength = skillPts.Next(0, 100);
-            this.speed = skillPts.Next(0, 100);
-            this.health = skillPts.Next(0, 100);
+            this.strength = skillPts.Next(0, 100) + 1;
+            this.speed = skillPts.Next(0, 100) + 1;
+            this.health = skillPts.Next(0, 100) + 1;
 
         }
-
-      /*  private bool hitAttempt()
+        // determines if hit is landed or not (3 = hit)
+        private bool hitAttempt()
         {
-            // switch statement random num
+            bool hit = false;
+            Random attack = new Random();
+            int attempt = attack.Next(1, 5) + 1;
+
+            if (attempt == 3)
+            {
+                hit = true;
+            }
+            
+            else
+            {
+                hit = false;
+            }
+            return hit;
         }
 
-        
+        // calculates amount of damage dealt to enemy (random number from 1-6)
         private int hitDamage()
         {
-
+            Random damage = new Random ();
+            this.hitStrength = this.strength * (damage.Next (0, 6) + 1);
+            return hitStrength;
         }
 
 
         // PUBLIC METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public void fight()
         {
-
+            if (this.attempt == true)
+            {
+                hitDamage();
+                Console.WriteLine ("{0} damage dealt!", this.hitStrength);
+            }
+            else
+            {
+                Console.WriteLine("You missed! Try again, Princess ;)");
+            }
         }
 
-        public show()
+        public void show()
         {
-
-        }*/
+            Console.WriteLine("Princess Zelda's statistics:", this.name);
+            Console.WriteLine("Strength {0}", this.strength);
+            Console.WriteLine("Speed {0}", this.speed);
+            Console.WriteLine("health {0}", this.health);
+        }
 
         
         
