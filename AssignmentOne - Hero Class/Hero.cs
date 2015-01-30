@@ -22,7 +22,6 @@ namespace AssignmentOne___Hero_Class
         // PUBLIC PROPERTIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public string name;
 
-        
 
         // CONSTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public Hero(string name)
@@ -31,7 +30,7 @@ namespace AssignmentOne___Hero_Class
             generateAbilities();
         }
 
-        
+
         // PRIVATE METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Random skill points generated from 0-100
         private void generateAbilities()
@@ -41,6 +40,7 @@ namespace AssignmentOne___Hero_Class
             this.health = randomNum.Next(0, 100) + 1;
 
         }
+
         // Determines if hit is landed or not (20% chance)
         private bool hitAttempt()
         {
@@ -62,7 +62,6 @@ namespace AssignmentOne___Hero_Class
             this.hitStrength = this.strength * (damage.Next (0, 6) + 1);
             return hitStrength;
         }
-
 
         // PUBLIC METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Simulates combat
@@ -87,15 +86,10 @@ namespace AssignmentOne___Hero_Class
             Console.WriteLine("|     The Hylian Heroine      |");
             Console.WriteLine("|       Princess {0}        |", this.name);
             Console.WriteLine("|                             |");
-            Console.WriteLine("| Strength: {0}", this.strength);
-            Console.WriteLine("| Speed: {0}", this.speed);
-            Console.WriteLine("| Health: {0}", this.health);
+            Console.WriteLine("|        Strength: {0}", this.strength);
+            Console.WriteLine("|        Speed: {0}", this.speed);
+            Console.WriteLine("|        Health: {0}", this.health);
             Console.WriteLine("|_____________________________|");
         }
-
-        
-        
-
-
     }
 }
